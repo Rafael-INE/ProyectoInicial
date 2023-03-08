@@ -1,11 +1,11 @@
 package com.vacaciones.modelos;
 
 public class Empleado {
-	String email;
-	String pwd;
-	String first_name;
-	String last_name;
-	int roles;
+	private String email;
+	private String pwd;
+	private String first_name;
+	private String last_name;
+	private int roles;
 	
 	public Empleado(String email, String pwd, String first_name, String last_name, int roles) {
 		this.email = email;
