@@ -8,6 +8,7 @@ public class ProyectoVacacionesApplication {
 
 	public static void main(String[] args) {
 		System.out.println("Hola");
+		System.out.println("Rafael");
 		SpringApplication.run(ProyectoVacacionesApplication.class, args);
 	}
 	
