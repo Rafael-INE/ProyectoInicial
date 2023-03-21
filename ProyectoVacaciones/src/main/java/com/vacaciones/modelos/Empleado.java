@@ -1,18 +1,32 @@
 package com.vacaciones.modelos;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+
 public class Empleado {
+	@Id 
+	@Column(name="email")
 	private String email;
+	@Column(name="password")
 	private String pwd;
+	@Column(name="first_name")
 	private String first_name;
+	@Column(name="last_name")
 	private String last_name;
-	private int roles;
+	@ManyToOne
+	private Role role;
 	
-	public Empleado(String email, String pwd, String first_name, String last_name, int roles) {
+	
+	public Empleado(String email, String pwd, String first_name, String last_name, Role role) {
 		this.email = email;
 		this.pwd = pwd;
 		this.first_name = first_name;
 		this.last_name = last_name;
-		this.roles = roles;
+		this.role = role;
 	}
 	public String getEmail() {
 		return email;
@@ -38,11 +52,11 @@ public class Empleado {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	public int getRoles() {
-		return roles;
+	public Role getRoles() {
+		return role;
 	}
-	public void setRoles(int roles) {
-		this.roles = roles;
+	public void setRoles(Role role) {
+		this.role = role;
 	}
 	
 	
