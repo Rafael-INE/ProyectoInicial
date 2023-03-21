@@ -29,7 +29,7 @@ public class EmpleadoServicio {
 		return empleadoRepository.save(e);
 	}
 	
-	public Empleado buscarPorEmail(int id) {
+	public Empleado buscarPorId(int id) {
 		return empleadoRepository.findById(id).orElse(null);
 	}
 	public List<Empleado> listarEmpleados(){
