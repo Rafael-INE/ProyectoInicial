@@ -48,7 +48,7 @@ public class VacacionesControlador {
 		return new ResponseEntity<>(modificarVacaciones, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/borrar")
+	@DeleteMapping("/borrar/{id}")
 	public ResponseEntity<?> borrarVacaciones(@PathVariable("id") int id){
 		vacacionesService.borrarVacaciones(id);
 		return new ResponseEntity<>(HttpStatus.OK);
