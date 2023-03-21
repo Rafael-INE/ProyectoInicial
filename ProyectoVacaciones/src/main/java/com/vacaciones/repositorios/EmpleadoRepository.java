@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.vacaciones.modelos.Empleado;
 
 @Repository
-public interface EmpleadoRepository extends JpaRepository<Empleado,String> {
+public interface EmpleadoRepository extends JpaRepository<Empleado,Integer> {
 	
 }

@@ -17,8 +17,8 @@ public class EmpleadoServicio {
 		return empleadoRepository.save(e);
 	}
 	
-	public void borrarEmpleado(String email) {
-		empleadoRepository.deleteById(email);
+	public void borrarEmpleado(int id) {
+		empleadoRepository.deleteById(id);
 	}
 	
 	public void borrarEmpleado(Empleado e) {
@@ -29,8 +29,8 @@ public class EmpleadoServicio {
 		return empleadoRepository.save(e);
 	}
 	
-	public Empleado buscarPorEmail(String email) {
-		return empleadoRepository.findById(email).orElse(null);
+	public Empleado buscarPorEmail(int id) {
+		return empleadoRepository.findById(id).orElse(null);
 	}
 	public List<Empleado> listarEmpleados(){
 		return empleadoRepository.findAll();
