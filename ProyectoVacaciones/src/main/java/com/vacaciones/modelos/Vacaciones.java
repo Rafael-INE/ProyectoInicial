@@ -8,6 +8,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -18,6 +20,9 @@ import jakarta.persistence.TemporalType;
 @EntityListeners(AuditingEntityListener.class)
 public class Vacaciones {
 
+	@Id
+	@GeneratedValue
+	private int id;
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="request_date")
@@ -34,17 +39,14 @@ public class Vacaciones {
 	@ManyToOne
 	private Empleado empleado;
 	
-	private String emailRequester;
 	
 	@Column(name="state")
 	private String state;
 	
-	public Vacaciones(Date requestDate, Date startDate, Date finishDate, String emailRequester, String state) {
-		
+	public Vacaciones(Date requestDate, Date startDate, Date finishDate, String state) {
 		this.requestDate = requestDate;
 		this.startDate = startDate;
 		this.finishDate = finishDate;
-		this.emailRequester = emailRequester;
 		this.state = state;
 	}
 	public Date getRequestDate() {
@@ -65,11 +67,11 @@ public class Vacaciones {
 	public void setFinishDate(Date finishDate) {
 		this.finishDate = finishDate;
 	}
-	public String getEmailRequester() {
-		return emailRequester;
+	public int getId() {
+		return this.id;
 	}
-	public void setEmailRequester(String emailRequester) {
-		this.emailRequester = emailRequester;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getState() {
 		return state;
