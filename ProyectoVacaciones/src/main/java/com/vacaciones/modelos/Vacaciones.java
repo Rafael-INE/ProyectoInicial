@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -37,12 +38,15 @@ public class Vacaciones {
 	private Date finishDate;
 	
 	@ManyToOne
+	@JoinColumn(name="id_employee")
 	private Empleado empleado;
 	
 	
 	@Column(name="state")
 	private String state;
-	
+	public Vacaciones() {
+		
+	}
 	public Vacaciones(Date requestDate, Date startDate, Date finishDate, String state) {
 		this.requestDate = requestDate;
 		this.startDate = startDate;

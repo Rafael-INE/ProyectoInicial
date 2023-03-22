@@ -1,5 +1,7 @@
 package com.vacaciones.modelos;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,8 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="roles")
-public class Role {
+@Table(name="role")
+public class Role implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
 	@Column(name="role_id")
@@ -16,6 +22,9 @@ public class Role {
 	@Column(name="description")
 	private String description;
 	
+	public Role() {
+		
+	}
 	public Role(int role_id, String description) {
 		this.role_id = role_id;
 		this.description = description;

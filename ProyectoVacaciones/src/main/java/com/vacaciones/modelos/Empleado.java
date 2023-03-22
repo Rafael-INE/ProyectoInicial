@@ -1,16 +1,24 @@
 package com.vacaciones.modelos;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="employee")
-public class Empleado {
-	@Id @GeneratedValue
+public class Empleado implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@Column(name="email")
 	private String email;
@@ -21,9 +29,12 @@ public class Empleado {
 	@Column(name="last_name")
 	private String last_name;
 	@ManyToOne
+	@JoinColumn(name="role")
 	private Role role;
 	
-	
+	public Empleado() {
+		
+	}
 	public Empleado(String email, String pwd, String first_name, String last_name, Role role) {
 		this.email = email;
 		this.pwd = pwd;
