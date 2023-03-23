@@ -17,7 +17,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="vacation")
+@Table(name="vacaciones")
 @EntityListeners(AuditingEntityListener.class)
 public class Vacaciones {
 

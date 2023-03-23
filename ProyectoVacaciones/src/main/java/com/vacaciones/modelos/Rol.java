@@ -28,6 +28,11 @@ public class Rol implements Serializable{
 		super();
 		this.id = id;
 	}
+	
+	public Rol(String descripcion) {
+		super();
+		this.descripcion = descripcion;
+	}
 	public Rol(int id, String descripcion) {
 		super();
 		this.id = id;
