@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="employee")
+@Table(name="empleado")
 public class Empleado implements Serializable {
 	/**
 	 * 
@@ -22,26 +22,40 @@ public class Empleado implements Serializable {
 	private int id;
 	@Column(name="email")
 	private String email;
-	@Column(name="password")
-	private String pwd;
-	@Column(name="first_name")
-	private String first_name;
-	@Column(name="last_name")
-	private String last_name;
+	@Column(name="contrasena")
+	private String contrasena;
+	@Column(name="nombre")
+	private String nombre;
+	@Column(name="apellidos")
+	private String apellidos;
 	@ManyToOne
-	@JoinColumn(name="role")
-	private Role role;
+	@JoinColumn(name="rol_id")
+	private Rol rol;
 	
 	public Empleado() {
 		
 	}
-	public Empleado(String email, String pwd, String first_name, String last_name, Role role) {
+
+	
+	public Empleado(String email, String contrasena, String nombre, String apellidos, Rol rol) {
+		super();
 		this.email = email;
-		this.pwd = pwd;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.role = role;
+		this.contrasena = contrasena;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.rol = rol;
 	}
+
+	public Empleado(int id, String email, String contrasena, String nombre, String apellidos, Rol rol) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.contrasena = contrasena;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.rol = rol;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -54,29 +68,30 @@ public class Empleado implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPwd() {
-		return pwd;
+	
+	public String getContrasena() {
+		return contrasena;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
-	public String getFirst_name() {
-		return first_name;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public String getLast_name() {
-		return last_name;
+	public String getApellidos() {
+		return apellidos;
 	}
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
-	public Role getRole() {
-		return role;
+	public Rol getRol() {
+		return rol;
 	}
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
 	
 	

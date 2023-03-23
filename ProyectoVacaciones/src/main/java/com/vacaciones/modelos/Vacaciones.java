@@ -26,61 +26,82 @@ public class Vacaciones {
 	private int id;
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="request_date")
-	private Date requestDate;
+	@Column(name="fecha_solicitud")
+	private Date fechaSolicitud;
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="start_date")
-	private Date startDate;
+	@Column(name="fecha_inicio")
+	private Date fechaInicio;
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="finish_date")
-	private Date finishDate;
+	@Column(name="fecha_fin")
+	private Date fechaFin;
 	
 	@ManyToOne
-	@JoinColumn(name="id_employee")
+	@JoinColumn(name="id_empleado")
 	private Empleado empleado;
 	
 	
-	@Column(name="state")
-	private String state;
+	@Column(name="estado")
+	private String estado;
 	public Vacaciones() {
 		
 	}
-	public Vacaciones(Date requestDate, Date startDate, Date finishDate, String state) {
-		this.requestDate = requestDate;
-		this.startDate = startDate;
-		this.finishDate = finishDate;
-		this.state = state;
+	
+	public Vacaciones(Date fechaSolicitud, Date fechaInicio, Date fechaFin, Empleado empleado, String estado) {
+		super();
+		this.fechaSolicitud = fechaSolicitud;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.empleado = empleado;
+		this.estado = estado;
 	}
-	public Date getRequestDate() {
-		return requestDate;
+
+	public Vacaciones(int id, Date fechaSolicitud, Date fechaInicio, Date fechaFin, Empleado empleado, String estado) {
+		super();
+		this.id = id;
+		this.fechaSolicitud = fechaSolicitud;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.empleado = empleado;
+		this.estado = estado;
 	}
-	public void setRequestDate(Date requestDate) {
-		this.requestDate = requestDate;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	public Date getFinishDate() {
-		return finishDate;
-	}
-	public void setFinishDate(Date finishDate) {
-		this.finishDate = finishDate;
-	}
+
 	public int getId() {
-		return this.id;
+		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getState() {
-		return state;
+	public Date getFechaSolicitud() {
+		return fechaSolicitud;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setFechaSolicitud(Date fechaSolicitud) {
+		this.fechaSolicitud = fechaSolicitud;
 	}
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+	public Date getFechaFin() {
+		return fechaFin;
+	}
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+	public Empleado getEmpleado() {
+		return empleado;
+	}
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
 }
