@@ -37,7 +37,7 @@ public class VacacionesControlador {
 	} 
 	
 	@PostMapping("/anadir")
-	public ResponseEntity<Vacaciones> aniadirVacaciones(@RequestBody Vacaciones vacaciones){
+	public ResponseEntity<Vacaciones> anadirVacaciones(@RequestBody Vacaciones vacaciones){
 		Vacaciones nuevasVacaciones = vacacionesService.anadirVacaciones(vacaciones);
 		return new ResponseEntity<>(nuevasVacaciones, HttpStatus.CREATED);
 	}
