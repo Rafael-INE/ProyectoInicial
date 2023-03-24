@@ -23,7 +23,7 @@ public class EmpleadoControlador {
 	@Autowired
 	EmpleadoServicio empleadoService;
 	
-	@GetMapping("/listar")
+	@GetMapping(value={"","/","/listar"})
 	public ResponseEntity<List<Empleado>> obtenerEmpleados(){
 		List<Empleado> empleados= empleadoService.listarEmpleados();
 		System.out.println();
@@ -51,7 +51,7 @@ public class EmpleadoControlador {
 	}
 	
 	@DeleteMapping("/borrar/{id}")
-	public ResponseEntity<?> modificarEmpleado(@PathVariable("id") int id){
+	public ResponseEntity<?> borrarEmpleado(@PathVariable("id") int id){
 		empleadoService.borrarEmpleado(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 		

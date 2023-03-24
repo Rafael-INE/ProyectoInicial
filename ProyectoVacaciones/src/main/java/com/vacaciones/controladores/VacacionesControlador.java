@@ -24,7 +24,7 @@ public class VacacionesControlador {
 	@Autowired
 	VacacionesServicio vacacionesService;
 	
-	@GetMapping
+	@GetMapping(value={"","/","/listar"})
 	public ResponseEntity<List<Vacaciones>> obtenerVacaciones(){
 		List<Vacaciones> vacaciones= vacacionesService.listarVacaciones();
 		return new ResponseEntity<>(vacaciones, HttpStatus.OK);

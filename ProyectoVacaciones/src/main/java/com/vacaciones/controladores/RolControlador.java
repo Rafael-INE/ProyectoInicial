@@ -20,14 +20,14 @@ public class RolControlador {
 	@Autowired
 	RolServicio rolService;
 	
-	@GetMapping("/listar")
+	@GetMapping(value={"","/","/listar"})
 	public ResponseEntity<List<Rol>> obtenerRoles(){
 		List<Rol> roles= rolService.listarRoles();
 		return new ResponseEntity<>(roles, HttpStatus.OK);
 	}
 	
 	@PostMapping("/anadir")
-	public ResponseEntity<Rol> anadirRole(@RequestBody Rol rol){
+	public ResponseEntity<Rol> anadirRol(@RequestBody Rol rol){
 		Rol nuevo = rolService.anadirRol(rol);
 		return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
 		
