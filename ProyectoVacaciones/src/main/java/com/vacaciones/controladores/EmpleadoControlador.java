@@ -23,7 +23,7 @@ public class EmpleadoControlador {
 	@Autowired
 	EmpleadoServicio empleadoService;
 	
-	@GetMapping(value={"","/","/listar"})
+	@GetMapping("/listar")
 	public ResponseEntity<List<Empleado>> obtenerEmpleados(){
 		List<Empleado> empleados= empleadoService.listarEmpleados();
 		System.out.println();
