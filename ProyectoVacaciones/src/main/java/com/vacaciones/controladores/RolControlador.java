@@ -20,7 +20,7 @@ public class RolControlador {
 	@Autowired
 	RolServicio rolService;
 	
-	@GetMapping(value={"","/","/listar"})
+	@GetMapping("/listar")
 	public ResponseEntity<List<Rol>> obtenerRoles(){
 		List<Rol> roles= rolService.listarRoles();
 		return new ResponseEntity<>(roles, HttpStatus.OK);
