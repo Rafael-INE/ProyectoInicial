@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.vacaciones.modelos.Empleado;
 import com.vacaciones.modelos.Vacaciones;
 import com.vacaciones.repositorios.VacacionesRepository;
 
@@ -35,6 +35,10 @@ public class VacacionesServicio {
 	}
 	public List<Vacaciones> listarVacaciones(){
 		return vacacionesRepository.findAll();
+	}
+	
+	public  List<Vacaciones> listarVacacionesPorEmpleado(Empleado empleado){
+		return vacacionesRepository.findByEmpleado(empleado);
 	}
 
 

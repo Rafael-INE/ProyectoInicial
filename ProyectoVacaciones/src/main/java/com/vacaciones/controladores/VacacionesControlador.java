@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.vacaciones.modelos.Vacaciones; 
+import com.vacaciones.modelos.Vacaciones;
+import com.vacaciones.servicios.EmpleadoServicio;
 import com.vacaciones.servicios.VacacionesServicio;
 
 @RestController
@@ -23,7 +24,8 @@ import com.vacaciones.servicios.VacacionesServicio;
 public class VacacionesControlador {
 	@Autowired
 	VacacionesServicio vacacionesService;
-	
+	@Autowired
+	EmpleadoServicio empleadoService;
 	@GetMapping(value={"","/","/listar"})
 	public ResponseEntity<List<Vacaciones>> obtenerVacaciones(){
 		List<Vacaciones> vacaciones= vacacionesService.listarVacaciones();
@@ -52,5 +54,13 @@ public class VacacionesControlador {
 	public ResponseEntity<?> borrarVacaciones(@PathVariable("id") int id){
 		vacacionesService.borrarVacaciones(id);
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("/listar/{id}")
+	public ResponseEntity<List<Vacaciones>>obtenerVacacionesPorEmpleado(@PathVariable("id") int idEmpleado){
+		
+		List<Vacaciones> vacaciones = 
+				vacacionesService.listarVacacionesPorEmpleado(empleadoService.buscarPorId(idEmpleado));
+		return new ResponseEntity<>(vacaciones, HttpStatus.OK);
 	}
 }
