@@ -64,6 +64,13 @@ public class ProyectoVacacionesApplication {
 			Vacaciones vacaciones = new Vacaciones(convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), empleado2, "pendiente");
 			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones);
 			
+			
+			Vacaciones vacaciones2 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), empleado2, "pendiente");
+			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones2);
+			
+			Vacaciones vacaciones3 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado, "pendiente");
+			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones3);
+			
 
 		};
 		
