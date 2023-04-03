@@ -1,10 +1,5 @@
 package com.vacaciones.seguridad;
 
-import org.springframework.context.annotation.Configuration;
+public class UsuarioSeguridad {
 
-
-@Configuration
-//@EnableWebSecurity
-public class UsuarioSeguridad{
-	
 }
