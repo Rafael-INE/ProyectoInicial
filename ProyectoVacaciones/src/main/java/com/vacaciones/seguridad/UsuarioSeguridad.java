@@ -41,7 +41,7 @@ public class UsuarioSeguridad {
 				.and()
 				.authorizeHttpRequests()
 				.requestMatchers("/empleados/listar")
-				.hasRole("EMPLEADO")
+				.hasAnyRole("JEFE","ROLE_JEFE")
 				.anyRequest()
 				.authenticated()
 				.and()

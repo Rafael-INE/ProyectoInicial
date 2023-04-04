@@ -16,7 +16,7 @@ public class AppConfig {
 				registry.addMapping("/login")
 					.allowedOrigins("http://localhost:4200")
 					.allowedMethods("*")
-					.allowedHeaders("*");
+					.exposedHeaders("*");
 				
 				registry.addMapping("/**")
 				.allowedOrigins("http://localhost:4200")

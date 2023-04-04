@@ -1,10 +1,13 @@
 package com.vacaciones.seguridad;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,7 +45,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		// TODO Auto-generated method stub
 		
 		CustomUserDetailsImpl cudi = (CustomUserDetailsImpl)authResult.getPrincipal();
-		String token = TokenUtils.createToken(cudi.getName(), cudi.getUsername());
+		List<SimpleGrantedAuthority> authList = (ArrayList<SimpleGrantedAuthority>)cudi.getAuthorities();
+		String token = TokenUtils.createToken(cudi.getName(), cudi.getUsername(), authList);
 		response.addHeader("Authorization", "Bearer " + token);
 		response.getWriter().flush();
 		super.successfulAuthentication(request, response, chain, authResult);

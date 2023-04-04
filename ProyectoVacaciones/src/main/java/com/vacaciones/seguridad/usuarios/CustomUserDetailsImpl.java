@@ -17,15 +17,17 @@ public class CustomUserDetailsImpl implements UserDetails {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private final Empleado empleado;
 	public CustomUserDetailsImpl(Empleado empleado) {
 		super();
 		this.empleado = empleado;
 	}
 
-	private final Empleado empleado;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		String role = empleado.getRol().getDescripcion();
+		System.out.println("ROLE "+ role);
 		List<SimpleGrantedAuthority> authList = new ArrayList<>();
 		authList.add(new SimpleGrantedAuthority("ROLE_EMPLEADO"));
 		if (role != null && role.trim().length() > 0) {
