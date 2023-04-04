@@ -1,9 +1,15 @@
 package com.vacaciones;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -15,35 +21,30 @@ import com.vacaciones.servicios.EmpleadoServicio;
 import com.vacaciones.servicios.RolServicio;
 import com.vacaciones.servicios.VacacionesServicio;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-
 @SpringBootApplication
-
 public class ProyectoVacacionesApplication {
 
 	public static void main(String[] args) {
+		System.out.println(new BCryptPasswordEncoder().encode("1234"));
 		SpringApplication.run(ProyectoVacacionesApplication.class, args);
 	}
 	
-	@Bean
-	public CorsFilter corsFilter() {
-		CorsConfiguration corsConfiguration = new CorsConfiguration();
-		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
-				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
-				"Access-Control-Request-Method", "Access-Control-Request-Headers"));
-		corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
-				"Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
-		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-		return new CorsFilter(urlBasedCorsConfigurationSource);
-	}
-	
+//	@Bean
+//	public CorsFilter corsFilter() {
+//		CorsConfiguration corsConfiguration = new CorsConfiguration();
+//		corsConfiguration.setAllowCredentials(true);
+//		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+//		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
+//				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
+//				"Access-Control-Request-Method", "Access-Control-Request-Headers"));
+//		corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
+//				"Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
+//		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+//		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+//		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+//		return new CorsFilter(urlBasedCorsConfigurationSource);
+//	}
+//	
 	@Bean
 	public CommandLineRunner initData(EmpleadoServicio empleadoServicio, RolServicio rolServicio, VacacionesServicio vacacionesServicio) {
 		return args -> {
@@ -55,7 +56,7 @@ public class ProyectoVacacionesApplication {
 			rolJefe = rolServicio.anadirRol(rolJefe);
 			rolEmpleado = rolServicio.anadirRol(rolEmpleado);
 			
-			Empleado empleado = new Empleado("alberto.ruiz@inetum.com", "1234", "Alberto", "Ruiz", rolEmpleado);
+			Empleado empleado = new Empleado("alberto.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alberto", "Ruiz", rolEmpleado);
 			empleado = empleadoServicio.anadirEmpleado(empleado);
 
 			Empleado empleado2 = new Empleado("juan.lopez@inetum.com", "1234", "Juan", "Lopez", rolJefe);
