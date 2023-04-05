@@ -29,12 +29,13 @@ public class CustomUserDetailsImpl implements UserDetails {
 		String role = empleado.getRol().getDescripcion();
 		System.out.println("ROLE "+ role);
 		List<SimpleGrantedAuthority> authList = new ArrayList<>();
-		authList.add(new SimpleGrantedAuthority("ROLE_EMPLEADO"));
 		if (role != null && role.trim().length() > 0) {
 			if (role.equalsIgnoreCase("admin")) {
 				authList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			} else if (role.equalsIgnoreCase("jefe")) {
 				authList.add(new SimpleGrantedAuthority("ROLE_JEFE"));
+			} else if (role.equalsIgnoreCase("empleado")) {
+				authList.add(new SimpleGrantedAuthority("ROLE_EMPLEADO"));
 			}
 		}
 		return authList;

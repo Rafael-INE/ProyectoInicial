@@ -24,8 +24,6 @@ import io.jsonwebtoken.security.Keys;
 public class TokenUtils {
 	private final static String ACCESS_TOKEN_SECRET = "DHUSN2KSOSKnsuwksoanduwni129nn82";
 	private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 2_592_000L;
-	@Autowired
-	static EmpleadoRepository empleadoRepository;
 
 	public static String createToken(String nombre, String email, List<SimpleGrantedAuthority> authList) {
 		long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1_000;
