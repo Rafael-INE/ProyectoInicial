@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public class AuthCredentials {
+	private int id;
 	private String email;
 	private String password;
 	private List<SimpleGrantedAuthority> authorities;
@@ -13,12 +14,20 @@ public class AuthCredentials {
 	}
 	
 
+	public AuthCredentials(int id, String email, String password, List<SimpleGrantedAuthority> authorities) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.authorities = authorities;
+	}
 	public AuthCredentials(String email, String password, List<SimpleGrantedAuthority> authorities) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.authorities = authorities;
 	}
+
 
 
 	public List<SimpleGrantedAuthority> getAuthorities() {
@@ -28,6 +37,16 @@ public class AuthCredentials {
 
 	public void setAuthorities(List<SimpleGrantedAuthority> authorities) {
 		this.authorities = authorities;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

@@ -56,10 +56,10 @@ public class ProyectoVacacionesApplication {
 			rolJefe = rolServicio.anadirRol(rolJefe);
 			rolEmpleado = rolServicio.anadirRol(rolEmpleado);
 			
-			Empleado empleado = new Empleado("alberto.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alberto", "Ruiz", rolJefe);
+			Empleado empleado = new Empleado("alberto.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alberto", "Ruiz", rolAdmin);
 			empleado = empleadoServicio.anadirEmpleado(empleado);
 
-			Empleado empleado2 = new Empleado("juan.lopez@inetum.com", "1234", "Juan", "Lopez", rolJefe);
+			Empleado empleado2 = new Empleado("juan.lopez@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Juan", "Lopez", rolJefe);
 			empleado2 = empleadoServicio.anadirEmpleado(empleado2);
 
 			Vacaciones vacaciones = new Vacaciones(convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), empleado2, "pendiente");

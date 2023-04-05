@@ -36,6 +36,11 @@ public class EmpleadoControlador {
 		Empleado empleado = empleadoService.buscarPorId(id);
 		return new ResponseEntity<>(empleado, HttpStatus.OK);
 	} 
+	@GetMapping("/find/{username}")
+	public ResponseEntity<Empleado> obtenerEmpleadoPorEmail(@PathVariable("username") String email ){
+		Empleado empleado = empleadoService.buscarPorEmail(email);
+		return new ResponseEntity<>(empleado, HttpStatus.OK);
+	} 
 	
 	@PostMapping("/anadir")
 	public ResponseEntity<Empleado> anadirEmpleado(@RequestBody Empleado empleado){

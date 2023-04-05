@@ -36,5 +36,9 @@ public class EmpleadoServicio {
 		return empleadoRepository.findAll();
 	}
 	
+	public Empleado buscarPorEmail(String email) {
+		return empleadoRepository.findByEmail(email);
+	}
+	
 	
 }
