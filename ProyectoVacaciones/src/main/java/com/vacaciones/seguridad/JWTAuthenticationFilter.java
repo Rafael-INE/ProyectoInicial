@@ -46,7 +46,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		
 		CustomUserDetailsImpl cudi = (CustomUserDetailsImpl)authResult.getPrincipal();
 		List<SimpleGrantedAuthority> authList = (ArrayList<SimpleGrantedAuthority>)cudi.getAuthorities();
-		System.out.println("HOLA ESTO ES UNA PRUEBA");
 		String token = TokenUtils.createToken(cudi.getName(), cudi.getUsername(), authList);
 		response.addHeader("Authorization", "Bearer " + token);
 		response.getWriter().flush();
