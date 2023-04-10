@@ -104,4 +104,10 @@ public class Vacaciones {
 		this.estado = estado;
 	}
 
+	@Override
+	public String toString() {
+		return "Vacaciones [id=" + id + ", fechaSolicitud=" + fechaSolicitud + ", fechaInicio=" + fechaInicio
+				+ ", fechaFin=" + fechaFin + ", empleado=" + empleado + ", estado=" + estado + "]";
+	}
+
 }
