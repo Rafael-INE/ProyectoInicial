@@ -68,13 +68,13 @@ public class ProyectoVacacionesApplication {
 			Empleado empleado4 = new Empleado("alfonso.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alfonso", "Ruiz", rolEmpleado);
 			empleado4 = empleadoServicio.anadirEmpleado(empleado4);
 
-			Vacaciones vacaciones = new Vacaciones(convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), empleado2, "Pendiente");
+			Vacaciones vacaciones = new Vacaciones(convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), empleado2, "Aceptada");
 			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones);
 			
 			Vacaciones vacaciones2 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), empleado2, "Pendiente");
 			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones2);
 			
-			Vacaciones vacaciones3 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado, "Pendiente");
+			Vacaciones vacaciones3 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado, "Denegada");
 			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones3);
 			
 			Vacaciones vacaciones4 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado4, "Pendiente");
