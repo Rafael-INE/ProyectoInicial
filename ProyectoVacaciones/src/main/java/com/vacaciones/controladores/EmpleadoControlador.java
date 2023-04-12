@@ -64,6 +64,14 @@ public class EmpleadoControlador {
 		
 	}
 	
+	@PutMapping("/editarPerfil")
+	public ResponseEntity<Empleado> editarPerfil(@RequestBody Empleado empleado){
+		empleado.setContrasena(new BCryptPasswordEncoder().encode(empleado.getContrasena()));
+		Empleado nuevo = empleadoService.editarEmpleado(empleado);
+		return new ResponseEntity<>(nuevo, HttpStatus.OK);
+		
+	}
+	
 	
 	
 	
