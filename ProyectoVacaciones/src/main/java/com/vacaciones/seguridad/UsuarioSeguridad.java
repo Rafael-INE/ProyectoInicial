@@ -42,8 +42,6 @@ public class UsuarioSeguridad {
 				.authorizeHttpRequests()
 				.requestMatchers("/empleados/find/**")
 				.permitAll()
-				.requestMatchers("/empleados/listar")
-				.hasAnyRole("ADMIN", "JEFE")
 				.anyRequest()
 				.authenticated()
 				.and()
