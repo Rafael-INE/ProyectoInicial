@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import com.vacaciones.modelos.Rol;
 import com.vacaciones.repositorios.RolRepository;
 
+/**
+ * Servicio que permite el acceso a la base de datos de roles a través de los repositorios
+ * @author rafael.alonso.ext
+ *
+ */
 @Service
 public class RolServicio {
 	@Autowired

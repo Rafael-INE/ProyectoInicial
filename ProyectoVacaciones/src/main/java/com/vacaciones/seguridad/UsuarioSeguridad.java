@@ -16,6 +16,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import lombok.AllArgsConstructor;
 
+/**
+ * Clase de configuración para la seguridad de la aplicación
+ * @author rafael.alonso.ext
+ *
+ */
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
@@ -27,14 +32,23 @@ public class UsuarioSeguridad {
 	private JWTAuthorizationFilter jAuthorF;
 	
 	
+	/**
+	 * @param http Parámetro para configurar los accesos y peticiones http
+	 * @param authManager Gestor de autenticación
+	 * @return
+	 * @throws Exception
+	 */
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
+		//Se crea un nuevo filtro de Autenticación y se asocia a login para tomar las credenciales
 		JWTAuthenticationFilter jwtAuthen = new JWTAuthenticationFilter();
 		jwtAuthen.setAuthenticationManager(authManager);
 		jwtAuthen.setFilterProcessesUrl("/login");
+	
+		//Se deshabilita csrf, se hace que todas las peticiones sean con autenticación salvo la 
+		//búsqueda de usuario en el login
 		
-		
-		
+		//Se filtran las peticiones por el gestor de Autenticación y el de Autorización
 		return http
 				.csrf().disable()
 				.cors()
@@ -55,6 +69,12 @@ public class UsuarioSeguridad {
 		
 	}
 	
+	/**
+	 * Método para generar un manager de autenticación basado en user y password
+	 * @param http Objeto de seguridad http
+	 * @return La configuración http
+	 * @throws Exception
+	 */
 	@Bean
 	AuthenticationManager authManager(HttpSecurity http) throws Exception {
 		return http.getSharedObject(AuthenticationManagerBuilder.class)
@@ -64,6 +84,10 @@ public class UsuarioSeguridad {
 				.build();
 	}
 	
+	/**
+	 * Método auxiliar para codificar las contrasenas
+	 * @return Codificador de contrasenas
+	 */
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

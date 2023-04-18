@@ -21,6 +21,12 @@ import com.vacaciones.servicios.EmpleadoServicio;
 import com.vacaciones.servicios.RolServicio;
 import com.vacaciones.servicios.VacacionesServicio;
 
+/**
+ * Clase starter del sistema de vacaciones en el backend
+ * Pobla una base de datos con uos datos iniciales
+ * @author rafael.alonso.ext
+ * @author mario.aparicio.ext
+ */
 @SpringBootApplication
 public class ProyectoVacacionesApplication {
 
@@ -45,6 +51,14 @@ public class ProyectoVacacionesApplication {
 //		return new CorsFilter(urlBasedCorsConfigurationSource);
 //	}
 //	
+	
+	/**
+	 * Método para poblar la base de datos 
+	 * @param empleadoServicio Servicio para introducir empleados
+	 * @param rolServicio Servicio para introducir roles
+	 * @param vacacionesServicio Servicio para introducir vacaciones
+	 * @return
+	 */
 	@Bean
 	public CommandLineRunner initData(EmpleadoServicio empleadoServicio, RolServicio rolServicio, VacacionesServicio vacacionesServicio) {
 		return args -> {
@@ -84,7 +98,12 @@ public class ProyectoVacacionesApplication {
 		};
 		
 	}
-	
+
+	/**
+	 * Este método es auxiliar para la conversión de fechas para la BD
+	 * @param date Fecha de entrada 
+	 * @return La fecha convertida
+	 */
 	private Date convertirFecha(String date) {
 		try {
 			return new SimpleDateFormat("yyyy-MM-dd").parse(date);

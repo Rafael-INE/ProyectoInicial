@@ -4,9 +4,17 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+/**
+ * Entidad Rol del sistema de vacaciones
+ * Un empleado estará compuesto por:
+ * 	Id
+ * 	Descripcion
+ * @author rafael.alonso.ext
+ * @author mario.aparicio.ext
+ */
 @Entity
 @Table(name="rol")
 public class Rol implements Serializable{
@@ -15,7 +23,7 @@ public class Rol implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	@Column(name="descripcion")
@@ -38,8 +46,7 @@ public class Rol implements Serializable{
 		this.id = id;
 		this.descripcion = descripcion;
 	}
-	//@OneToMany(mappedBy = "employee",cascade= CascadeType.ALL, orphanRemoval=true)
-	//private Set<Empleado> empleados;
+
 	public int getId() {
 		return id;
 	}
