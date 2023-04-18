@@ -12,8 +12,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * Clase de seguridad para verificar que el usuario que realiza
+ * las peticiones está autorizado para ello
+ * @author rafael.alonso.ext
+ *
+ */
 @Component
 public class JWTAuthorizationFilter extends OncePerRequestFilter{
+	/**
+	 * Mediante el token de autenticación que contiene las autoridades
+	 * se agregan los resultados de autenticación al contexto de seguridad
+	 */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, 
 			HttpServletResponse response, 
@@ -25,16 +35,9 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter{
 		
 		if(bearerToken != null && bearerToken.startsWith("Bearer ")) {
 			String token = bearerToken.replace("Bearer ", "");
-			
 			UsernamePasswordAuthenticationToken usernamePAT = TokenUtils.getAuthentication(token);
 			SecurityContextHolder.getContext().setAuthentication(usernamePAT);
-			
-			
 		}
-		
 		filterChain.doFilter(request, response);
-		
-		
-	}
-	
+	}	
 }

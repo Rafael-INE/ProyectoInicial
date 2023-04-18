@@ -4,6 +4,12 @@ import java.util.List;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+/**
+ * Clase para la generación y manejo de credenciales
+ * Las credenciales tienen id, email asociado, password asociado y la lista de permisos que tiene dicho usuario
+ * @author rafael.alonso.ext
+ *
+ */
 public class AuthCredentials {
 	private int id;
 	private String email;

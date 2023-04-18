@@ -11,6 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.vacaciones.modelos.Empleado;
 
 
+/**
+ * Clase que implementa los detalles de usuario para la autenticación y autorización
+ * @author rafael.alonso.ext
+ *
+ */
 public class CustomUserDetailsImpl implements UserDetails {
 
 	/**

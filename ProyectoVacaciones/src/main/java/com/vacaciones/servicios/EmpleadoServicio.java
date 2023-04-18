@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import com.vacaciones.modelos.Empleado;
 import com.vacaciones.repositorios.EmpleadoRepository;
 
+/**
+ * Servicio que permite el acceso a la base de datos de empleados a través de los repositorios
+ * @author rafael.alonso.ext
+ *
+ */
 @Service
 public class EmpleadoServicio {
 	@Autowired

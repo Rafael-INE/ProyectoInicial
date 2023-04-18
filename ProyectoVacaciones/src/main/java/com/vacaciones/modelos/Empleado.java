@@ -11,6 +11,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+/**
+ * Entidad Empleado del sistema de vacaciones
+ * Un empleado estará compuesto por:
+ * 	Id
+ * 	Nombre
+ * 	Apellidos
+ * 	Contrasena
+ * 	Email
+ * 	Rol
+ * @author rafael.alonso.ext
+ * @author mario.aparicio.ext
+ */
 @Entity
 @Table(name="empleado")
 public class Empleado implements Serializable {
@@ -18,7 +30,7 @@ public class Empleado implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="email")
 	private String email;

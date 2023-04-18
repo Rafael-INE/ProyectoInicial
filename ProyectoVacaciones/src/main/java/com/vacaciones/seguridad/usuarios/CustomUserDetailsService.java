@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import com.vacaciones.modelos.Empleado;
 import com.vacaciones.repositorios.EmpleadoRepository;
 
+/**
+ * Servicio para obtener los detalles de un usuario del sistema
+ * @author rafael.alonso.ext
+ *
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 	
