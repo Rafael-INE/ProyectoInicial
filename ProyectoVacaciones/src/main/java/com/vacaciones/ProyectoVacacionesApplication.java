@@ -62,37 +62,37 @@ public class ProyectoVacacionesApplication {
 	@Bean
 	public CommandLineRunner initData(EmpleadoServicio empleadoServicio, RolServicio rolServicio, VacacionesServicio vacacionesServicio) {
 		return args -> {
-			Rol rolAdmin = new Rol(1, "ADMIN");
-			Rol rolJefe = new Rol(2, "JEFE");
-			Rol rolEmpleado = new Rol(3, "EMPLEADO");
-			
-			rolAdmin = rolServicio.anadirRol(rolAdmin);
-			rolJefe = rolServicio.anadirRol(rolJefe);
-			rolEmpleado = rolServicio.anadirRol(rolEmpleado);
-			
-			Empleado empleado = new Empleado("alberto.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alberto", "Ruiz", rolAdmin);
-			empleado = empleadoServicio.anadirEmpleado(empleado);
-
-			Empleado empleado2 = new Empleado("juan.lopez@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Juan", "Lopez", rolJefe);
-			empleado2 = empleadoServicio.anadirEmpleado(empleado2);
-			
-			Empleado empleado3 = new Empleado("manuel.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Manuel", "Ruiz", rolEmpleado);
-			empleado3 = empleadoServicio.anadirEmpleado(empleado3);
-			
-			Empleado empleado4 = new Empleado("alfonso.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alfonso", "Ruiz", rolEmpleado);
-			empleado4 = empleadoServicio.anadirEmpleado(empleado4);
-
-			Vacaciones vacaciones = new Vacaciones(convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), empleado2, "Aceptada");
-			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones);
-			
-			Vacaciones vacaciones2 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), empleado2, "Pendiente");
-			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones2);
-			
-			Vacaciones vacaciones3 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado, "Denegada");
-			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones3);
-			
-			Vacaciones vacaciones4 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado4, "Pendiente");
-			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones4);
+//			Rol rolAdmin = new Rol(1, "ADMIN");
+//			Rol rolJefe = new Rol(2, "JEFE");
+//			Rol rolEmpleado = new Rol(3, "EMPLEADO");
+//			
+//			rolAdmin = rolServicio.anadirRol(rolAdmin);
+//			rolJefe = rolServicio.anadirRol(rolJefe);
+//			rolEmpleado = rolServicio.anadirRol(rolEmpleado);
+//			
+//			Empleado empleado = new Empleado("alberto.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alberto", "Ruiz", rolAdmin);
+//			empleado = empleadoServicio.anadirEmpleado(empleado);
+//
+//			Empleado empleado2 = new Empleado("juan.lopez@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Juan", "Lopez", rolJefe);
+//			empleado2 = empleadoServicio.anadirEmpleado(empleado2);
+//			
+//			Empleado empleado3 = new Empleado("manuel.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Manuel", "Ruiz", rolEmpleado);
+//			empleado3 = empleadoServicio.anadirEmpleado(empleado3);
+//			
+//			Empleado empleado4 = new Empleado("alfonso.ruiz@inetum.com", "$2a$10$/k4lFE/TbMyNqwUw7OQB8e5j8pAR8gflaQRdcbnAoVXh.ukBJdofe", "Alfonso", "Ruiz", rolEmpleado);
+//			empleado4 = empleadoServicio.anadirEmpleado(empleado4);
+//
+//			Vacaciones vacaciones = new Vacaciones(convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), convertirFecha("2014-02-14"), empleado2, "Aceptada");
+//			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones);
+//			
+//			Vacaciones vacaciones2 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), empleado2, "Pendiente");
+//			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones2);
+//			
+//			Vacaciones vacaciones3 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado, "Denegada");
+//			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones3);
+//			
+//			Vacaciones vacaciones4 = new Vacaciones(convertirFecha("2017-02-14"), convertirFecha("2018-02-14"), convertirFecha("2018-02-14"), empleado4, "Pendiente");
+//			vacaciones = vacacionesServicio.anadirVacaciones(vacaciones4);
 			
 
 		};
